@@ -1,0 +1,60 @@
+TASK 2
+
+     "BRACKET BALANCING PROBLEM"
+
+Using stack.
+
+Code:
+
+
+#include <stdio.h>
+
+int top= -1;
+char n[100];
+
+void push(a)
+{
+    n[++top] = a;
+}
+
+void pop()
+{
+    if(top==-1)
+        printf("Not Balanced Brackets");
+
+    else
+        --top;
+
+}
+
+void check_top()
+{
+    if (top==-1)
+        printf("Balanced Brackets");
+
+    else
+        printf("Not Balanced Brackets");
+}
+
+int main()
+{
+    char s[100];
+
+    printf("Enter the figure\n");
+    scanf("%s",&s);
+
+    for (int i=0; s[i]!=0; i++)
+    {
+            if ( s[i]=='(')
+            {
+                push(s[i]);
+            }
+            else if( s[i]== ')')
+            {
+                pop();
+            }
+            else
+                printf("Enter the correct brackets");
+      }
+ check_top();
+}
