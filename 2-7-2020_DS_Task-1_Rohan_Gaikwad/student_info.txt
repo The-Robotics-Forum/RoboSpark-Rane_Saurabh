@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student_info
+{
+	char name[25];
+	unsigned gr_no;  
+	char year[2];
+	float cgpa;
+};
+
+struct student_info get_details(struct student_info temp)
+{
+	printf("Enter student's name : ");
+	scanf("%[^\n]s",temp.name);
+	printf("Enter student's Gr number : ");
+	scanf("%d",&temp.gr_no );
+	printf("Enter student's academic year i.e..fy : First  sy : second ty : third ly : Final year\nEnter your choice : ");
+	scanf("%s",temp.year);
+	printf("Enter student's cgpa : ");
+	scanf("%f",&temp.cgpa );
+	getchar();
+	return temp;
+}
+
+void print_details(struct student_info temp)
+{
+	printf("Students name : %s \n",temp.name);
+	printf("Student's Gr number : %d\n",temp.gr_no);
+	printf("Student's academic year : %s\n",temp.year);
+	printf("Student's cgpa : %f\n",temp.cgpa);
+	printf("\nEnter new student's details \n");
+}
+
+
+
+
+int main()
+{
+	struct student_info student_1,student_2, student_3, student_4;
+	   
+	    student_1 = get_details(student_1);
+	    printf("\nStudent's 1's information is saved as below :\n\n");
+	    print_details(student_1);
+	    
+	    student_2 = get_details(student_2);
+	    printf("\nStudent's 2's information is saved as below :\n\n");
+	    print_details(student_2);
+		
+		student_3 = get_details(student_3);
+	    printf("\nStudent's 3's information is saved as below :\n\n");
+	    print_details(student_3);
+		
+		student_4 = get_details(student_4);
+	    printf("\nStudent's 4's information is saved as below :\n\n");
+	    print_details(student_4);
+        
+        return 100;
+}
