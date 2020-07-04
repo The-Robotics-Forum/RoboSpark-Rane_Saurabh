@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+int front,rear;
+
+typedef struct studet_info             //  structure for students name and roll no.
+{
+	char name[25];
+	int roll_no;
+}student_info;
+
+
+void add(student_info xyz,int i)
+{
+	student_info *arr[25] ; // array of pointers to structures
+	arr[rear] = &xyz;
+	
+	printf("Student's information is stored as \nStudent's name : %s\nStudent's roll no : %d\n",*(arr+rear*sizeof(student_info)),xyz.roll_no);
+    rear++;
+    
+    if (i==-1)
+    {
+    	printf("Popped out elemnt is : ");
+    	printf("\nStudent name : %s\n student roll no : %d\n",*(arr+front*sizeof(student_info)),xyz.roll_no);
+    	front++;
+	}
+}
+
+int check_n_store(student_info xyz)         // checkig for roll no.s condition if yes add this xyz structures address to queue
+{
+	if (xyz.roll_no % 2==0)
+	{
+		add(xyz,1);
+		return 1;
+	}
+	else
+	{
+		printf("Unable to store students information ....Try for student with even roll number .");
+		return 0;
+	}
+}
+
+student_info create(student_info xyz)
+{
+  printf("Enter student's name : ");
+	scanf("%[^\n]s",xyz.name );
+	printf("Enter students roll no. : ");
+	scanf("%d",&xyz.roll_no);
+	getchar();
+	if(check_n_store(xyz))
+	return xyz;
+}
+
+void pop_out(student_info xyz)
+{
+	int i=-1;   
+	add(xyz,i );
+}
+
+void intialize()
+{
+	front=rear=0;
+}
+
+
+int main()
+{
+	student_info abc;
+	int ch=1;
+	while(ch!=0)
+	{
+		abc=create(abc);
+		intialize();
+		printf("\n\nDo u want to continue saving students info i.e.. 1 : Yes  0 : No\nEnter your choice : ");
+	
+		scanf("%d",&ch);
+	}
+	pop_out(abc);
+}

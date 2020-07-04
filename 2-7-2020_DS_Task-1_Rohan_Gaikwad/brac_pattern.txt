@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void check(char arr[],int n)
+{
+	int test=0,i=n;
+	while(i>-1)
+	{
+	    if(arr[n]!='(')
+	       {
+	        	++test;
+	    	    --n;
+	        }
+	    else
+		    break;    
+	    --i;
+    }  
+	
+	if (test==n+1)
+		printf("No. of brackest on L.H.S = R.H.S");
+	else if (test<(n+1))  // n is used to represent index of arr upto '(' this bracket not total '(' brackets 
+	    printf("No. of brackest on L.H.S > R.H.S");
+    else
+        printf("No. of brackest on L.H.S < R.H.S");    
+}
+
+int main()
+{
+	int temp;
+	char arr[1000];
+	printf("Enter Total Brackets of Pattern : ");
+	scanf("%s",arr);
+	temp=strlen(arr)-1;  // array indexicing starts  from 0
+	check(arr,temp);
+	return 8;
+}
