@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+    int roll;
+    int cgpa;
+    int year;
+    int rank;
+
+    void getInput()
+    {
+        std::cout << "Give the input : If u don't want to pass input enter 0 and enter :\n\n";
+        cout << "Name: ";
+        cin >> name;
+        cout << "Roll No: ";
+        cin >> roll;
+        cout << "CGPA : ";
+        cin >> cgpa;
+        cout << "Year : ";
+        cin >> year;
+        cout<<"Rank : ";
+        cin >>rank;
+    }
+    
+    void showDetails(int i)
+    {
+    	cout << "\nDetails of student are as \nName: " << name << "\n";
+        cout << "Roll No:" << roll << endl;
+        cout << "CGPA: " << cgpa << endl;
+        cout << "Year: " << year << endl;
+        if (i==0)
+        cout << "\nStudent has NO RANK"<<endl;
+        if (i==1)
+        cout << "\nRANK : "<<rank<<endl;
+    }
+
+
+
+void showRank(int a)
+{
+    cout<<"\nRank of a student is : "<<a<<endl;
+}
+
+void showRank()
+{
+	  showDetails(0); 
+}
+
+
+void showRank(Student xyz ,int n)
+{
+	showDetails(1);
+}
+};
+
+
+int main()
+{
+	Student s;
+	s.getInput() ;
+	if(s.rank==0)
+	s.showRank();
+	else if( s.rank !=0 && s.year==0 &&s.cgpa ==0)
+	s.showRank(s.rank);
+	else
+	s.showRank(s,s.rank);
+}
