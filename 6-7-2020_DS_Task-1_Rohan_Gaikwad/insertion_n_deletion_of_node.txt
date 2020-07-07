@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+display(struct node *head)
+{
+    if(head == NULL)
+    {
+        printf("NULL\n");
+    }
+    else
+    {
+        printf("%d   ", head -> data);
+        display(head->next);
+    }
+}
+
+struct node* front(struct node *head,int value)
+{
+    struct node *p;
+    p=malloc(sizeof(struct node));
+    p->data=value;
+    p->next=head;
+    return (p);
+}
+
+end(struct node *head,int value)
+{
+    struct node *p,*q;
+    p=malloc(sizeof(struct node));
+    p->data=value;
+    p->next=NULL;
+    q=head;
+    while(q->next!=NULL)
+    {
+        q = q->next;
+    }
+    q->next = p;
+}
+
+after(struct node *a, int value)
+{
+    if (a->next != NULL)
+    {
+        struct node *p;
+        p = malloc(sizeof(struct node));
+        p->data = value;
+        p->next = a->next;
+        a->next = p;
+    }
+    else
+    {
+        printf("Use end function to insert at the end\n");
+    }
+}
+
+
+del (struct node *before_del)
+{
+    struct node *temp;
+    temp = before_del->next;
+    before_del->next = temp->next;
+    free(temp);
+}
+
+
+int main()
+{
+    struct node *prev,*head, *p;
+    int n,i,add;
+    printf ("Enter total number of elements (at least 2)  : ");
+    scanf("%d",&n);
+    head=NULL;
+    for(i=0;i<n;i++)
+    {
+        p=malloc(sizeof(struct node));
+        printf("Enter %dth : ",i+1);
+        scanf("%d",&p->data);
+        p->next=NULL;
+        if(head==NULL)
+            head=p;
+        else
+            prev->next=p;
+        prev=p;
+    }
+    printf("\nThis will add node to start .\nEnter element to add : ");
+    scanf("%d",&add);
+    head = front(head,add);
+    printf("List as :   ");
+    display(head);
+    printf("\nThis will add node to end .\nEnter element to add : ");
+    scanf("%d",&add);
+    end(head,add);
+    display(head);
+    printf("\nThis will add node to position 4.\nEnter element to add : ");
+    scanf("%d",&add);
+    after(head->next->next,add); 
+    display(head);
+    printf("\nAfter deleting a node at position 3 : \n");
+    del(head->next);
+    display(head);
+    
+    return 0;
+}
