@@ -1,0 +1,87 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Strings_class
+{
+	string name;
+	int password;
+	public:
+	string one;
+	string two;
+	string add;
+	
+	Strings_class()
+	{
+	add ="";
+	cout<<"Enter 1st string :  ";
+	cin>>one;
+	cout<<"Enter 2nd string ( will be used for concatenation with first one ): ";
+	cin>>two;
+	}
+	string operator +(string a);
+	string operator *(int n);
+	
+	friend istream& operator >> (istream& input ,Strings_class &obj);
+	friend ostream& operator << (ostream& input ,Strings_class &obj);
+
+};
+
+istream& operator >> (istream& input ,Strings_class &obj)
+{
+	cout<<"\nEnter name  :  ";
+	input>>obj.name ;
+	cout<<"Enter 4 digit password  : ";
+	input>>obj.password;
+	return input;
+	
+}
+
+ostream& operator << (ostream& output ,Strings_class &obj)
+{
+	output <<"\nYour name  : "<<obj.name<<endl;
+	output <<"Your password  : "<<obj.password<<endl;
+	return output;
+}
+
+
+string Strings_class :: operator *(int n)
+{
+	for(int i=0;i<n;i++)
+	add = add + one;
+    return add;	
+}
+
+
+string Strings_class :: operator + (string a)
+{
+    add = one+two;
+    return add;
+}
+
+int main()
+{
+	char ch;
+	Strings_class s;
+	int i;
+	string store;
+	cout<<"Which operator do u want to overload ? + , * , 1 for cin and cout :   ";
+	cin>>ch;
+	if(ch=='+')
+	{
+	store = s.one + s.two ;
+	cout<<"\nResulted string : "<<store<<endl;
+    }
+	else if(ch=='1')
+	{
+		cin>>s;
+		cout<<s;
+	}
+    else if(ch=='*')
+	{
+	cout<<"\nEneter a integer : ";
+	cin>>i;
+    store = s * i;
+	cout<<"\nResulted string : "<<store<<endl;
+    }
+}
