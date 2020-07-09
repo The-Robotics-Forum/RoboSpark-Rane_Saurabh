@@ -1,0 +1,136 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Personal_Data
+{
+	public:
+    long long int mob_no;
+	long int dob;
+	string name ,surname ;
+	Personal_Data()
+	{
+		mob_no = 8237925724;
+		dob = 30012002;
+		name = "Rohan";
+		surname = "Gaikwad";
+	}
+	
+	void get_data_1()
+	{
+		cout<<"\nYour name :  ";
+		cin>>name;
+		cout<<"Your surname :  ";
+		cin>>surname;
+		cout<<"Your mob_no :  ";
+		cin>>mob_no;
+		cout<<"Your DOB :  ";
+		cin>>dob;
+	}
+	
+};
+
+
+class  Professional_Data
+{
+	public:
+		string organization ,job ,project;
+		
+	Professional_Data()
+	{
+		organization = "TRF";
+		job = "NONE";
+		project = "LETS_QUIZZ";
+	}	
+	
+	void get_data_P()
+	{
+		cout<<"Your organiztion name :  ";
+		cin>>organization;
+		cout<<"Your job :  ";
+		cin>>job;
+		cout<<"Your last project :  ";
+		cin>>project;
+	}	
+};
+
+
+class Academic_Data
+{
+	public:
+	int year_of_passing ; double cgpa;
+	string collg_name , branch;
+	
+	
+	Academic_Data()
+	{
+		collg_name = "VIT";
+		branch = "MECH";
+		cgpa = 7.4;
+		year_of_passing = 2023; 
+	}
+	
+	void get_data_A()
+	{
+		cout<<"Your college name :  ";
+		cin>>collg_name;
+		cout<<"Your branch :  ";
+		cin>>branch;
+		cout<<"Your last year cgpa :  ";
+		cin>>cgpa;
+		cout<<"Your year of passing : ";
+		cin>>year_of_passing ;
+
+	}
+};
+
+
+class Bio_Data : public Personal_Data ,public Professional_Data , public Academic_Data 
+{
+	public:
+	Bio_Data()
+	{
+		  // Object has all the data as default		
+		display();  
+	}
+	
+	Bio_Data(int i)
+	{
+	    get_data_1();
+	    get_data_P();
+		get_data_A();
+		display();
+	}
+	
+	void display()
+    {
+		cout<<"\nYour Whole Data as below : \nYour name     :  "<<name<<endl;
+		cout<<"Your surname  :  "<<surname<<endl;
+		cout<<"Your mob_no   :  "<<mob_no<<endl;
+		cout<<"Your DOB      :  "<<dob<<endl;
+		cout<<"Your organiztion  :  "<<organization<<endl;
+		cout<<"Your job          :  "<<job<<endl;	
+		cout<<"Your last project :  "<<project<<endl;
+		cout<<"Your college name :  "<<collg_name<<endl;
+		cout<<"Your branch       :  "<<branch<<endl;
+		cout<<"Your last year cgpa  :  "<<cgpa<<endl;
+		cout<<"Your year of passing : "<<year_of_passing<<endl;	
+    }
+};
+
+
+int main()
+{
+	int ch;
+	
+	cout<<"Do u want to use default data present ? (1/0)  :   ";
+	cin>>ch;
+	if(ch)
+	{
+		Bio_Data obj;
+	}
+	
+	else
+	{
+		Bio_Data obj(ch);
+	}
+}
