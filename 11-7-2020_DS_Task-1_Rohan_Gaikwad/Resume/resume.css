@@ -1,0 +1,51 @@
+
+body  {background-color:lightblue;}
+
+#image{
+background : fixed no-repeat;
+position :absolute;
+width : 20%;}
+
+
+.name{
+color:green;
+font-family : Consolas;
+font-weight : bold;
+font-size : 20px;
+padding-top : 60px;}
+
+
+.name h1{
+margin-left : 30%;}
+
+.name h3{
+margin-left: 32%;
+color: tomato;
+padding : 25px ;
+margin-bottom : 6%;}
+
+
+.skills{
+font-family : Times;
+font-size : 19px;
+margin-top : 3%;
+margin-left : 6%;}
+
+.checked{
+color:yellow;}
+
+
+.skills table{
+font-family:Times;
+font-size:18px;
+text-align:left;}
+
+
+.temp {font-family:times;}
+
+
+.Projects{
+margin-left:6%;
+line-height : 175%;
+font-size : 18px;
+}
