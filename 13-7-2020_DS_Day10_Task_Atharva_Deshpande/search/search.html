@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="search.css">
+        <link rel="icon" href="trflogo6.png"> 
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <form method="POST" action="search.php" class="search-box">
+            <h1>Search</h1>
+            <div class="form_input">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="search" name="stud_name" placeholder="Search here..." required class="a"/>
+                <p>search from the options given::::</p>
+                <select id="stud_name">
+                    <option >Atharva Deshpande</option>
+                    <option>Indrayani Pawar</option>
+                    <option>Saurabh Rane</option>
+                    <option>Tarun Medtiya</option>
+                  </select>
+            </div>
+            <input type="submit" name="submit" value="Search" class="submit-btn">
+        </form>
+    </body>
+</html>
